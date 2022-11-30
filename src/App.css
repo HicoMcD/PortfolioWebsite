@@ -1,38 +1,112 @@
-.App {
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', 'sans-serif';
+  background-color: rgb(46, 45, 45);
+  color: #444;
+}
+
+.container {
+  max-width: 95%;
+  margin-right: auto;
+  margin-left: auto;
+  /* margin-top: 10px; */
+  padding: 1rem;
+}
+
+h1, p {
+  margin: 0 0 1em 0;
+}
+
+h5 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.wrapper {
+  display: grid;
+  grid-gap: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.sidebar-center {
+  display: grid;
+  grid-template-rows: 1fr;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  border-radius: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.img-size {
+  width: 15rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.content-list {
+  margin-top: 20px;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  text-align: left;
+  list-style-position: inside;
+}
+
+.header {
+  text-align: center;
+}
+
+
+@media screen and (min-width: 500px) {
+
+  /* no grid support? */
+  .sidebar {
+    float: left;
+    width: 19.1489%;
+   }
+
+  .content {
+    float: right;
+    width: 79.7872%;
+    text-align: center;
+    list-style-position: inside;
   }
-  to {
-    transform: rotate(360deg);
+
+  .wrapper {
+    margin: 0 auto;
+    grid-template-columns: 1fr 3fr;
+  }
+  
+  .header, .footer {
+    grid-column: 1 / -1;
+    /* needed for the floated layout */
+    clear: both;
+    text-align: center;
+  }
+
+}
+
+.wrapper > * {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+  /* needed for the floated layout*/
+  margin-bottom: 10px;
+}
+
+.contact-links {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
   }
 }
