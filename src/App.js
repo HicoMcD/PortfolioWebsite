@@ -66,6 +66,9 @@ function App() {
                     </article>
 
                 <footer className="footer">
+                    <button style={{width: '100px', height: '100px'}}>
+                    <a href='https://web-3-guest-book.vercel.app/' target='_blank'>Web3 GuestBook DApp</a>
+                    </button>
                 </footer>
 
             </div>
